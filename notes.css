@@ -10,12 +10,15 @@ body {
 }
 
 :root {
-    --main-white-back: rgb(33, 37, 37);
-    --main-color-back: rgb(12, 14, 14);
+    --main-white-back: #212525;
+    --main-color-back: #0c0e0e;
     --main-color-back3: rgb(37, 39, 39);
     --main-color-back2: rgb(23, 23, 27);
+    --main-color-back4: rgb(29, 29, 37);
     --main-color: #ff8a00;
     --second-color: #e52e71;
+    --chroma-left: linear-gradient(to right, #ff8a00, #e52e71, #2eb1e5);
+    --chroma-top: linear-gradient(to top, #ff8a00, #e52e71);
 }
 
 .nav {
@@ -35,6 +38,14 @@ body {
     gap: 10px;
 }
 
+.chroma-color {
+    animation: animateGradient 2s linear infinite alternate-reverse;
+    background: linear-gradient(to right, #ff8a00, #e52e71);
+    transition: all 0.5s, background-position 2s linear;
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 .nav .cont .logo span {
     font-family: "Caveat", cursive;
@@ -86,7 +97,7 @@ body {
     width: 9ch;
     cursor: pointer;
     animation: animateGradient 2s linear infinite alternate-reverse;
-    background: linear-gradient(to right, #ff8a00, #e52e71, #2eb1e5);
+    background: var(--chroma-left);
     background-size: 200% auto;
     -webkit-background-clip: text;
 
@@ -181,4 +192,208 @@ body {
     font-weight: 700;
     color: white;
 
+}
+
+.space {
+    height: 80px;
+    width: 100%;
+}
+
+.landing {
+
+    position: relative;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 30px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.landing .image {
+    width: 40%;
+    height: auto;
+    position: relative;
+    perspective: 500px;
+    transform-style: preserve-3d;
+
+
+
+}
+
+.type {
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid orange;
+    /* The typwriter cursor */
+    width: 110%;
+
+
+    animation: typing 1.5s steps(40, end), blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+        white-space: nowrap;
+    }
+
+    to {
+        width: 100%;
+        white-space: nowrap;
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: rgba(255, 255, 255, 0.356);
+    }
+}
+
+.par {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    color: rgb(172, 172, 172);
+}
+
+.topping {
+    border-radius: 3px;
+    height: max-content;
+    padding: 5px;
+    width: 100%;
+
+    background-image: linear-gradient(to right, #ff88002a 0%, rgba(54, 54, 54, 0) 100%);
+}
+
+.landing .info {
+    width: 100%;
+}
+
+.landing .info .cont {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: white;
+    width: 100%;
+    overflow: hidden;
+}
+
+.rounded {
+    background-color: var(--main-color-back2);
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 700px;
+    border: solid rgba(255, 255, 255, 0.144) 1px;
+    width: max-content;
+    height: max-content;
+    display: inline-block;
+    margin: 2px;
+}
+
+.g-btn:hover {
+    border: solid var(--second-color) 1px;
+}
+
+.g-btn {
+    background-color: var(--main-color-back4);
+    padding: 10px;
+    color: white;
+    font-weight: 600;
+    border-radius: 7px;
+    border: solid rgba(255, 255, 255, 0.11) 1px;
+    width: max-content;
+    height: max-content;
+    font-size: 18px;
+    transition: 0.4s;
+    cursor: pointer;
+
+}
+
+p {
+    white-space: wrap;
+    word-break: break-all;
+    text-wrap: wrap;
+}
+
+.g-btn:hover {}
+
+.big-font {
+    font-size: 35px;
+}
+
+.font-small {
+    font-size: 18px;
+}
+
+.font-plain {
+    font-weight: 400 !important;
+
+}
+
+.font-weighted {
+    font-weight: 600;
+}
+
+.landing .info .cont .content {
+    background-color: var(--main-color-back2);
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.line {
+    position: relative;
+    padding-left: 10px;
+}
+
+.line::before {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background-image: var(--chroma-top);
+    left: 0px;
+    top: 0;
+    border-radius: 10px;
+}
+
+.landing .image svg {
+
+
+    transition: 0.4s;
+    transform: rotateY(0deg) rotateX(0deg);
+
+}
+
+
+.landing .image:hover svg {
+    transform: rotateX(-2deg);
+}
+
+
+@media only screen and (max-width: 950px) {
+    .landing {
+        flex-wrap: wrap;
+        width: 95%;
+    }
+
+    .landing .image,
+    .landing .info .cont {
+        width: 100%;
+    }
 }
