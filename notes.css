@@ -1,0 +1,184 @@
+body {
+    background-color: var(--main-color-back);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-white-back: rgb(33, 37, 37);
+    --main-color-back: rgb(12, 14, 14);
+    --main-color-back3: rgb(37, 39, 39);
+    --main-color-back2: rgb(23, 23, 27);
+    --main-color: #ff8a00;
+    --second-color: #e52e71;
+}
+
+.nav {
+    background-color: var(--main-color-back2);
+    height: 80px;
+    position: relative;
+
+}
+
+.nav .cont {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.nav .cont .logo span {
+    font-family: "Caveat", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-style: normal;
+    color: aqua;
+    z-index: 1;
+    animation: animateGradient 2s linear infinite alternate-reverse;
+    background: linear-gradient(to right, #ff8a00, #e52e71);
+    font-size: 25px;
+    transition: background-position 2s linear;
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.nav .cont .pair {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0 10px;
+    align-items: center;
+
+}
+
+.nav .cont .pair .search input:focus {
+    background-color: var(--main-color-back3);
+    caret-color: white;
+}
+
+.nav .cont .pair .search {
+    background-color: var(--main-color-back);
+    border-radius: 5px;
+    width: 200px;
+    transition: 0.3s;
+    overflow: hidden;
+
+}
+
+.nav .cont .pair .search input {
+
+    padding: 7px;
+    outline: none;
+    border: none;
+    transition: all 0.3s, background-position 2s linear, width 0s;
+    width: 9ch;
+    cursor: pointer;
+    animation: animateGradient 2s linear infinite alternate-reverse;
+    background: linear-gradient(to right, #ff8a00, #e52e71, #2eb1e5);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+
+    -webkit-mask-image: linear-gradient(to right, white 0%, white 80%, transparent 100%);
+    mask-image: linear-gradient(to right, white 0%, white 80%, transparent 100%);
+
+    -webkit-text-fill-color: transparent;
+
+
+}
+
+.notes {
+    border-bottom: red 1px solid !important;
+}
+
+
+.nav .cont .pair .search:hover {
+    width: 300px;
+}
+
+.nav .cont .mover {
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    padding: 3px 5px;
+    background-color: var(--main-white-back);
+    border-radius: 5px;
+    top: 5px;
+    left: 0;
+    transform: scale(0.5);
+    transition: all 0.4s, opacity 0.3s, transform 0.3s;
+    transition-timing-function: cubic-bezier(0.04, -0.02, 0.16, 0.98);
+    color: white;
+    font-weight: 500;
+    font-size: 13px;
+
+    opacity: 0;
+}
+
+.nav .cont .mover.target::after {
+    content: "";
+    width: 0;
+    left: 0;
+    border: 7px solid transparent;
+    border-top-color: var(--main-white-back);
+    position: absolute;
+    transform: translate(-50%, 0);
+    left: 50%;
+    top: 100%;
+}
+
+.nav .cont .mover.target {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav .cont .ordering {
+    font-weight: 600;
+    font-size: 25px;
+    animation: animateGradient 3s linear infinite;
+    background: linear-gradient(to right, #e52e71,
+            #e52e2e, #ff8a00, #e52e71, #e52e2e);
+    transition: background-position 9s linear;
+    background-size: 400% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes animateGradient {
+    0% {
+        background-position: 0 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.nav .cont .logo {}
+
+.nav .cont .logo h3 {
+    font-family: "Anta", sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+
+}
